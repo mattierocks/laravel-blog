@@ -5,16 +5,21 @@
 @section('content')
 
     <div class="row">
-        {!! Form::model($post, ['route' => ['posts.update', $post->id, 'method' => 'PUT']]) !!}
-        <div class="col-auto">
-            {{ Form::label('title', 'Title:') }}
-            {{ Form::text('title', null, ['class' => 'form-control']) }}
+        <div class="col-sm-8">
+            {!! Form::model($post, ['route' => ['posts.update', $post->id, 'method' => 'PUT']]) !!}
+            <div class="col-auto">
+                {{ Form::label('title', 'Title:') }}
+                {{ Form::text('title', null, ['class' => 'form-control']) }}
 
-            {{ Form::label('body', 'Body:', ['class' => 'form-spacing-top']) }}
-            {{ Form::textarea('body', null, ['class' => 'form-control']) }}
-        </div><!-- end col-sm-8 -->
+                {{ Form::label('slug', 'URL:', ['class' => 'form-spacing-top']) }}
+                {{ Form::text('slug', null, ['class' => 'form-control']) }}
 
-        <div class="col-auto">
+                {{ Form::label('body', 'Body:', ['class' => 'form-spacing-top']) }}
+                {{ Form::textarea('body', null, ['class' => 'form-control']) }}
+            </div><!-- end col-sm-8 -->
+        </div>
+
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     <dl class="dl-horizontal">

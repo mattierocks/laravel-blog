@@ -15,8 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        // create  variable and store all te blog posts from the database in it
-        $posts = Post::all();
+        // create  variable and store all the blog posts from the database in it
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
 
         // return a view and pass in the above variable
         return view('posts.index')->withPosts($posts);
@@ -43,13 +43,16 @@ class PostController extends Controller
         // validate the data
         $this->validate($request, array(
             'title' => 'required|max:255',
+            'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'body' => 'required'
+            
         ));
 
         // store in the database
         $post = new Post;
 
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->body = $request->body;
 
         $post->save();
@@ -99,12 +102,14 @@ class PostController extends Controller
         // validate the data
         $this->validate($request, array(
             'title' => 'required|max:255',
+            'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'body' => 'required'
         ));
         // save the data to the database
         $post = Post::find($id);
 
         $post->title = $request->input('title');
+        $post->slug = $request->input('slug');
         $post->body = $request->input('body');
 
         $post->save();

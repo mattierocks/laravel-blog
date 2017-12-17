@@ -14,6 +14,11 @@
         <div class="card">
             <div class="card-body">
                 <dl class="dl-horizontal">
+                    <dt>URL:</dt>
+                    <dd><a href="{{ url($post->slug) }}">{{ url($post->slug) }}</a></dd>
+                </dl>
+
+                <dl class="dl-horizontal">
                     <dt>Created At:</dt>
                     <dd>{{ date('F j, Y  g:iA', strtotime($post->created_at)) }}</dd>
                 </dl>
@@ -34,6 +39,9 @@
 
                     {!! Form::close() !!}
                     </div><!-- end col-sm-6 -->
+                    <div class="col-sm-12">
+                    {!! Html::linkRoute('posts.index', 'Back to posts', [], ['class' => 'btn btn-outline-secondary btn-block btn-h1-spacing']) !!}
+                    </div>
                 </div><!-- end row -->
             </div><!-- end card-body -->
         </div><!-- end card -->
