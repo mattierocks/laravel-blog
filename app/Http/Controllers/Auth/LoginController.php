@@ -10,10 +10,6 @@ use Auth;
 class LoginController extends Controller
 {
 
-    // public function logout(Request $request) {
-    //     Auth::logout();
-    //     return redirect('/');
-    // }
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -39,6 +35,7 @@ class LoginController extends Controller
      *
      * @return void
      */
+    
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

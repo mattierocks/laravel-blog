@@ -11,15 +11,13 @@
 |
 */
 
-
 // Authentication Routes
-Route::get('auth/login', 'Auth\LoginController@showLoginForm');
+Route::get('auth/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('auth/login', 'Auth\LoginController@login');
 Route::get('auth/logout', 'Auth\LoginController@logout');
-Route::post('auth/logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes
-Route::get('auth/register', 'Auth\RegisterController@showRegistrationForm');
+Route::get('auth/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('auth/register', 'Auth\RegisterController@register');
 
 // Blog Pages
