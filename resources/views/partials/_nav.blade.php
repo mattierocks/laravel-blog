@@ -7,13 +7,16 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="{{ Request::is('/') ? "active" : "" }}">
         <a class="nav-link" href="/">Home</a>
       </li>
-      <li class="nav-item">
+      <li class="{{ Request::is('blog') ? "active" : "" }}">
+        <a class="nav-link" href="/blog">Blog</a>
+      </li>
+      <li class="{{ Request::is('about') ? "active" : "" }}">
         <a class="nav-link" href="/about">About</a>
       </li>
-      <li class="nav-item">
+      <li class="{{ Request::is('contact') ? "active" : "" }}">
         <a class="nav-link" href="/contact">Contact</a>
       </li>
       <li class="nav-item dropdown">
@@ -21,10 +24,10 @@
           My Account
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Logout</a>
         </div>
       </li>
 
