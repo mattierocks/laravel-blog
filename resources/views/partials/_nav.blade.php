@@ -19,18 +19,23 @@
       <li class="{{ Request::is('contact') ? "active" : "" }}">
         <a class="nav-link" href="/contact">Contact</a>
       </li>
+      @if (Auth::check())
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          My Account
+          Hello {{ Auth::user()->name }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
         </div>
       </li>
+      @else
 
+        <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+
+      @endif
     </ul>
     
   </div>
