@@ -8,6 +8,14 @@
         <h1>{{ $post->title }}</h1>
 
         <p class="lead">{{ $post->body }}</p>
+
+        <hr>
+
+        <div class="tags">
+            @foreach ($post->tags as $tag)
+                <span class="badge badge-secondary">{{ $tag->name }}</span>
+            @endforeach
+        </div><!-- End Tags -->
     </div><!-- end col-md-8 -->
 
     <div class="col-sm-4">
