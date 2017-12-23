@@ -36,6 +36,7 @@ Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
 
 // Contact Page
 Route::get('contact', 'PagesController@getContact');
+Route::post('contact', 'PagesController@postContact');
 
 // About Page
 Route::get('about', 'PagesController@getAbout');
