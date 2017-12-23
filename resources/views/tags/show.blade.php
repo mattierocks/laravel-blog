@@ -10,7 +10,10 @@
         </div>
         <div class="col-md-4">
             <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-primary btn-tag-edit float-right">Edit</a>
-            <a href="{{ route('tags.index') }}" class="btn btn-secondary btn-tag-back float-right">Back</a>    
+            <a href="{{ route('tags.index') }}" class="btn btn-secondary btn-tag-back float-right">Back</a>
+            {{ Form::open(['route' => ['tags.destroy', $tag->id,], 'method' => 'DELETE']) }}
+                {{ Form::submit('Delete', ['class' => 'btn btn-danger btn-tag-delete float-right']) }}
+            {{ Form::close() }}
         </div>  
     </div>
 
