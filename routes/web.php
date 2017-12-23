@@ -28,6 +28,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 // Categories
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
+Route::resource('tags', 'TagController', ['except' => ['create']]);
 
 // Blog Pages
 Route::get('/blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
