@@ -16,9 +16,10 @@
                 <span class="badge badge-secondary">{{ $tag->name }}</span>
             @endforeach
         </div><!-- End Tags -->
+        <hr>
 
         <div id-"backend-comments">
-            <h3>Comments <small>{{ $post->comments()->count() }} total</small></h3>
+                <h3 class="comments-title"><span class="fa fa-comments"></span>Comments <small>{{ $post->comments()->count() }} total</small></h3>
 
             <table class="table">
                 <thead>
