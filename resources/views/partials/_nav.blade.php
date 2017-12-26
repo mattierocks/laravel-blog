@@ -24,7 +24,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Hello {{ Auth::user()->name }}
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu float-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
           <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
           <a class="dropdown-item" href="{{ route('tags.index') }}">Tags</a>
